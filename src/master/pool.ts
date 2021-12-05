@@ -184,7 +184,7 @@ class WorkerPool<ThreadType extends Thread> implements Pool<ThreadType> {
       this.eventSubject.next({
         type: PoolEventType.taskFailed,
         taskID: task.id,
-        error,
+        error: error as Error,
         workerID
       })
     }

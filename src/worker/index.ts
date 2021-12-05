@@ -121,7 +121,7 @@ async function runFunction(jobUID: number, fn: WorkerFunction, args: any[]) {
   try {
     syncResult = fn(...args)
   } catch (error) {
-    return postJobErrorMessage(jobUID, error)
+    return postJobErrorMessage(jobUID, error as Error)
   }
 
   const resultType = isObservable(syncResult) ? "observable" : "promise"
